@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termina Central Bank - Sistema de Monitoreo</title>
+    <style>
+        @import url('https://googleapis.com');
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Courier Prime', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .game-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .sub-text {
+            font-size: 1.1rem;
+            color: #aaaaaa;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .highlight-green {
+            color: #00ffcc;
+        }
+
+        .highlight-red {
+            color: #ff3333;
+            font-weight: bold;
+        }
+
+        .highlight-gold {
+            color: #ffcc00;
+        }
+
+        .time-box {
+            border: 1px solid #333;
+            padding: 15px 30px;
+            background: #0a0a0a;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="content-container">
+        <!-- Contenido dinámico -->
+    </div>
+
+    <script>
+        function updateTimeline() {
+            const container = document.getElementById('content-container');
+            const now = new Date('2026-09-28T18:00:00');
+
+            const day = now.getDate();
+            const month = now.getMonth() + 1;
+            const hour = now.getHours(); // Formato 0-23
+
+            let htmlContent = "";
+
+            // --- LUNES 28 DE SEPTIEMBRE (Día 1) ---
+            if (day === 28 && month === 9) {
+                htmlContent = `
+                    <div class="game-text">Dawn of the First Day</div>
+                    <div class="game-text highlight-red">-72 Hours Remain-</div>
+                    <div class="sub-text">
+                        [SISTEMA]:<br><br>
+                        Se ha detectado una anomalía temporal en tu portafolio.<br><br>
+                        Un ciclo macroeconómico de alta volatilidad ha comenzado.<br><br>
+                        El costo de oportunidad de no revisar este enlace diariamente es crítico. 
+                        <br><br><span class="highlight-green">> Estado actual: Monitoreando fluctuaciones... Vuelve mañana.</span>
+                    </div>
+                `;
+            }
+            // --- MARTES 29 DE SEPTIEMBRE (Día 2) ---
+            else if (day === 29 && month === 9) {
+                htmlContent = `
+                    <div class="game-text">Dawn of the Second Day</div>
+                    <div class="game-text highlight-red">-48 Hours Remain-</div>
+                    <div class="sub-text">
+                        [SISTEMA]:<br><br>
+                        La inflación de la Fuerza sigue subiendo y la Luna se acerca a la superficie de Termina.<br><br>
+                        Los gráficos muestran un crecimiento exponencial en los índices de afecto.<br><br>
+                        No intentes tocar la Canción del Tiempo aún, los mercados no abrirán hasta el miércoles.
+                        <br><br><span class="highlight-gold">> Estado actual: Analizando curvas de rendimiento amoroso...</span>
+                    </div>
+                `;
+            }
+            // --- MIÉRCOLES 30 DE SEPTIEMBRE (Día Final / El Engaño) ---
+            else if (day === 30 && month === 9) {
+                // Si entra ANTES de las 6:00 PM (18hs), no ve lo que le vas a dar
+                if (hour < 18) {
+                    htmlContent = `
+                        <div class="game-text">Dawn of the Final Day</div>
+                        <div class="game-text highlight-red">-24 Hours Remain-</div>
+                        <div class="sub-text">
+                            [ALERTA]:<br><br>
+                            La Luna está en su punto más cercano. El colapso del sistema es inminente.<br><br>
+                            El Banco Central de Termina congelará las transacciones temporalmente.
+                            <br><br><span class="highlight-red">> Acceso restringido. Vuelve al final de la tarde cuando te encuentres con tu ingeniera.</span>
+                        </div>
+                    `;
+                } else {
+                    // Se desbloquea a partir de las 06:00 PM cuando ya estés con él
+                    htmlContent = `
+                        <div class="game-text highlight-green">¡CICLO COMPLETADO!</div>
+                        <div class="sub-text">
+                            Has sobrevivido con éxito a la fase de evaluación económica. Tu inversión de tiempo a mi lado ha dado un rendimiento del 100% en este periodo.
+                            <br><br>
+                            Muestra esta pantalla a tu ingeniera favorita para reclamar tu recompensa física del día. 
+                            <br><br>
+                            <span class="highlight-gold">[NOTA DE SISTEMA]: Cuidado, los logs indican que la base de datos se actualizará el 1 de octubre con nuevos parches.</span>
+                        </div>
+                    `;
+                }
+            }
+            // --- JUEVES 1 Y VIERNES 2 DE OCTUBRE (Primer Mes) ---
+            else if ((day === 1 || day === 2) && month === 10) {
+                if (hour < 18) {
+                    htmlContent = `
+                        <div class="game-text">Amanecer de un Nuevo Ciclo</div>
+                        <div class="sub-text">
+                            [PROCESANDO ACTUALIZACIÓN]:<br><br>
+                            El sistema ha sobrevivido al colapso del 30 de septiembre.<br><br>
+                            Abriendo nuevos canales de inversión...
+                            <br><br><span class="highlight-gold">> Bloqueado hasta el final de la tarde. El mercado está cerrado.</span>
+                        </div>
+                    `;
+                } else {
+                    htmlContent = `
+                        <div class="game-text highlight-gold">¡FELIZ PRIMER MES!</div>
+                        <div class="sub-text">
+                            ¿Pensaste que el juego había terminado el miércoles? Qué mal analista de mercados eres... ¡Esto apenas empieza!
+                            <br><br>
+                            Como activos de alta resistencia, nuestra relación entra en su segundo mes fiscal. Has desbloqueado un objeto de cuidado especial en tu inventario real. 
+                            <br><br>
+                            Tu misión: Cuidarlo y mantenerlo fuerte.<br><br> <span class="highlight-red">Vuelve a escanear el 3 de octubre para el despliegue del último snapshot.</span>
+                        </div>
+                    `;
+                }
+            }
+            // --- SÁBADO 3 DE OCTUBRE EN ADELANTE (Día del Novio - Peluche R2-D2) ---
+            else if (day >= 3 && month === 10) {
+                if (hour < 18) {
+                    htmlContent = `
+                        <div class="game-text">Fase Final del Protocolo</div>
+                        <div class="sub-text">
+                            [SISTEMA]:<br><br>
+                            Último paquete de datos detectado. Sincronizando con el satélite de la República...
+                            <br><br><span class="highlight-green">> Estado: Esperando confirmación manual en la tarde.</span>
+                        </div>
+                    `;
+                } else {
+                    htmlContent = `
+                    <div class="game-text highlight-green">The Sun Is Rising as a New Day Dawns.</div>
+                    <div class="game-text">Has salvado a Termina.</div>
+                    <div style="text-align: left; max-width: 500px; margin: 0 auto; padding: 20px; border-left: 3px solid #00ffcc; background: #0a0a0a; font-size: 1.05rem; line-height: 1.8; animation: fadeIn 3s ease-in-out;">
+                    <strong>Modo Palpatine: ON</strong>.<br><br>
+                    <em>"Únete a mí... gobernaremos la galaxia"</em>, te traje a este pequeño R2-D2.
+                    <br><br>
+                    En las precuelas, Padmé se lo regaló a Anakin como un símbolo de su amor. Yo te lo doy para que te cuide en tus batallas diarias (y para que vigile que no te pases por completo al Lado Oscuro).<br><br>
+                    ¡Feliz Día del Novio! Eres alguien muy importante para mí del todo el universo.<br><br>
+                    <strong>Te amo muchísimo.</strong>
+                    </div>
+                `;
+            }
+        }
+            // Caso por si entra en cualquier otra fecha fuera del rango
+            else {
+                    htmlContent = `
+                    <div class="game-text">Error 404</div>
+                    <div class="sub-text">Línea del tiempo no sincronizada. Regresa al Templo del Tiempo.</div>
+                `;
+                }
+
+                htmlContent += `
+                <div class="time-box">
+                    System Time: ${now.toLocaleDateString()} | Node: Trujillo_Core_Secure
+                </div>
+            `;
+
+                container.innerHTML = htmlContent;
+            }
+
+            window.onload = updateTimeline;
+    </script>
+</body>
+
+</html>
