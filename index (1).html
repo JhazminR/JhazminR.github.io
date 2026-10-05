@@ -1100,7 +1100,7 @@
                 }
 
                 /* --- 3 OCT --- */
-                else if (day >= 3 && month === 10) {
+                else if (day >= 5 && month === 10) {
                     if (!after6) {
                         html = `
                             <div class="game-text">Fase Final del Protocolo</div>
@@ -1236,7 +1236,7 @@
                 const day = now.getDate();
                 const month = now.getMonth() + 1;
                 const hour = now.getHours();
-                const after6 = hour >= 22;
+                const after6 = hour >= 09;
 
                 // Reloj y modo día final
                 updateClock(day, month);
