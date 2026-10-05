@@ -964,7 +964,7 @@
                 const day = now.getDate();
                 const month = now.getMonth() + 1;
                 const hour = now.getHours();
-                const after6 = hour >= 22;
+                const after6 = hour >= 09;
 
                 let html = '';
 
@@ -1101,19 +1101,6 @@
 
                 /* --- 3 OCT --- */
                 else if (day >= 5 && month === 10) {
-                    if (!after6) {
-                        html = `
-                            <div class="game-text">Fase Final del Protocolo</div>
-                            <div class="sub-text">
-                                [SISTEMA]:<br><br>
-                                Último paquete de datos detectado. Sincronizando con el satélite de la República...
-                                <br><br><span class="highlight-green">> Estado: Esperando confirmación manual en la tarde.</span>
-                            </div>
-                            <div id="pantalla-inicio">
-                                <button class="btn-conectar" id="btn-conectar">▶ Conectar al Sistema</button>
-                            </div>
-                        `;
-                    } else {
                         html = `
                             <div class="game-text highlight-green">The Sun Is Rising as a New Day Dawns.</div>
                             <div class="game-text">Has salvado a Términa.</div>
